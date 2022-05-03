@@ -1,0 +1,11 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - functions
+  - deploy
+  - copyFileFromSourceToTarget
+  - --source=.
+  - --trigger-resource=order_data_bucket
+  - --trigger-event=google.storage.object.finalize
+  - --runtime=nodejs16
+  - --allow-unauthenticated
